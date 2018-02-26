@@ -1,0 +1,59 @@
+.box {
+  margin: 100px auto;
+  width: 60%;
+}
+
+  .nopolmasuk {
+    margin: 160px auto;
+    margin-bottom: 80px;
+
+  }
+
+  .box input {
+    height: 50px;
+    text-align: center;
+  }
+
+
+  .box #btn-nopol {
+    width: 300px;
+    height: 50px;
+    border: none;
+    margin-left: 180px;
+  }
+
+#setting {
+  margin-top: 15px;
+}
+
+#setting a {
+  padding: 15px;
+}
+
+#setting a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: #aaa;
+}
+
+#please {
+  margin-bottom: 30px;
+}
+
+#nopol {
+  text-transform: uppercase;
+}
+
+.box .login input, option {
+  height: 40px;
+}
+
+.box-login button {
+  float: right;
+  width: 150px;
+  height: 40px;
+}
+
+.body {
+  height: 530px;
+}
