@@ -50,7 +50,7 @@
     function SimpanData()
     {
       $q   = $this->koneksi->query("INSERT INTO catat_masuk SET nopol = '$this->nopol', id_petugas = '$this->petugas'");
-    
+
       if (! $q )
       {
         echo "gagal";
@@ -62,11 +62,6 @@
       $q = $this->koneksi->query("SELECT * FROM jumlah_kendaraan WHERE nopol = '$this->nopol'");
       $r = $q->fetch_array();
       return $r;
-    }
-
-    function hitungData()
-    {
-
     }
 
     function logout()

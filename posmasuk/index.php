@@ -42,8 +42,8 @@
         <div class="box nopolmasuk">
           <h1 align='center' id='please'>Masukan Nopol Pengunjung :</h1>
           <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <input type="text" name="nopol" value="" class="form-control"> <br>
-            <input type="submit" name="submit" value="Simpan" class="btn btn-success" id='btn-nopol' >
+            <input type="text" name="nopol" value="" class="form-control" id="nopol"> <br>
+            <input type="submit" name="submit" value="Simpan" class="btn btn-success" id='btn-nopol' onclick="return cekkolom()">
           </form>
         </div>
       </div>
@@ -63,7 +63,7 @@
             <div class='container'>
               <p align='center' class='alert bg-info'>
                 Data Berhasil di Simpan : $r[nopol] <br>
-                <a href='?' class='btn btn-danger btn-sm'>Cetak Slip</a>
+                <a href='' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#myModal'>Cetak Slip</a>
               </p>
 
             </div>
@@ -80,6 +80,39 @@
       }
 
     ?>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade " role="dialog">
+      <div class="modal-dialog modal-sm">
+        <!-- konten modal-->
+        <div class="modal-content">
+          <!-- heading modal -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4>Cetak</h4>
+          </div>
+          <!-- body modal -->
+          <div class="modal-body">
+            <h2>ParkirArea</h2>
+            <hr>
+            <h3 align="center"><?php echo $r['nopol']; ?></h3>
+            <hr>
+            <table width="100%">
+              <tr>
+                <td width="33%" align="left"><?php echo $r['nama_petugas']; ?></td>
+                <td width="33%" align="center"><?php echo $r['waktu_masuk']; ?></td>
+                <td width="33%" align="right"><?php echo $r['kode_unik']; ?></td>
+              </tr>
+            </table>
+          </div>
+          <!-- footer modal -->
+          <div class="modal-footer">
+            <button type="button" name="button"> <span class="glyphicon glyphicon-print"></span> </button>
+            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup Modal</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
