@@ -56,17 +56,32 @@
             $pk->logout();
           }
 
-        ?>
+          if (isset($_POST['submit']) == "") {
+            if ($_POST['nopol'] == "") {
+              // echo "<script>alert('Nopol tidak boleh kosong');</script>";
+            } else {
+              ?>
 
-        <div class="box pembayaran">
-          <h1 align="center">Rp. 2000</h1>
-          <div class="" align="right">
-            <?php echo date("Y-m-d H:m:s") ?>
-            <button type="button" name="button" class="btn btn-primary">Bayar</button>
-            <button type="button" name="button" class="btn btn-success">Cetak</button>
-          </div>
-        </div>
+              <div class="pembayaran">
+                <table width="100%" align='center' >
+                  <tr>
+                    <td colspan="3"><h1 align="center">Rp. 2000</h1></td>
+                  </tr>
+                  <tr>
+                    <td width="33%" align="left">Muslih</td>
+                    <td width="33%" align="center">2012-03-01 23:09:10</td>
+                    <td width="33%" align="right">
+                      <button type="button" name="button" class="btn btn-primary">Bayar</button>
+                      <button type="button" name="button" class="btn btn-success">Cetak</button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
+          <?php
+            }
+          }
+          ?>
       </div>
 
     </div>

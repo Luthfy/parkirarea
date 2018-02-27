@@ -1,7 +1,14 @@
-.box {
-  margin: 100px auto;
+
+.pembayaran {
+  margin: -20px auto;
   width: 60%;
 }
+
+.box {
+  margin: 100px auto 0px;
+  width: 60%;
+}
+
 
   .nopolmasuk {
     margin: 160px auto;
