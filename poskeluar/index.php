@@ -69,7 +69,7 @@
                     <td colspan="3"><h1 align="center">Rp. <?php echo $prk; ?></h1></td>
                   </tr>
                   <tr>
-                    <td width="33%" align="left">Muslih</td>
+                    <td width="33%" align="left"><?php echo $h['nama_petugas']; ?></td>
                     <td width="33%" align="center"><?php echo $h['waktu_masuk']; ?></td>
                     <td width="33%" align="right">
                       <button type="button" name="button" class="btn btn-primary">Bayar</button>

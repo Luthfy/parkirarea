@@ -70,19 +70,17 @@ class posKeluar
 
     $jam = ($b->y * 365 * 24) + ($b->m * 30 * 24) + ($b->d  * 24) + ($b->h);
 
-    $bayar = "";
+    $bayar = 0;
 
-    if ($jam<1) {
-  		$bayar = 2000;
-  	}else{
-  		$bayar = 1000 + ($jam * 1000);
-  	}
+    if ($jam > 1) {
+      $bayar = 1000 + ($jam * 1000);
+    } else if ($jam > 0 AND $jam < 1) {
+      $bayar = 2000;
+    } else {
+      $bayar;
+    }
+
     return $bayar;
-  }
-
-  function getDanaNopol()
-  {
-
   }
 
   function logout()
