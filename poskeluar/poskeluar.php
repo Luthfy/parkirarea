@@ -83,6 +83,23 @@ class posKeluar
     return $bayar;
   }
 
+  function bayarParkir($uang)
+  {
+    // $petugas = $this->petugas;
+    $idnopol = $this->idnopol;
+    // print_r($idnopol);
+
+    // $q = mysqli_query ($this->koneksi, "Insert Into catat_keluar SET id_masuk = '$idnopol', biaya = '$uang', pembayaran = 'Cash', id_petugas = '$petugas' ");
+    //
+    // if ($q) {
+    //   echo "<script>alert('Pembayaran Berhasil')</script>";
+    // } else {
+    //   echo "<script>alert('".mysqli_error($this->koneksi)."')</script>";
+    //   echo "<script>alert('".$this->idnopol."')</script>";
+    // }
+
+  }
+
   function logout()
   {
     session_destroy();

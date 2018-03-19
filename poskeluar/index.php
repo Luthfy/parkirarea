@@ -51,10 +51,6 @@
 
           $pk = new posKeluar($koneksi, $id_petugas);
 
-          if (isset($_GET['pg']))
-          {
-            $pk->logout();
-          }
 
           if (isset($_POST['submit'])) {
             if ($_POST['nopol'] == "") {
@@ -69,10 +65,13 @@
                     <td colspan="3"><h1 align="center">Rp. <?php echo $prk; ?></h1></td>
                   </tr>
                   <tr>
-                    <td width="33%" align="left"><?php echo $h['nama_petugas']; ?></td>
+                    <td width="33%" align="left">
+                      <?php echo $h['nama_petugas']; ?> <br>
+                      <?php echo $h['nopol']; ?>
+                    </td>
                     <td width="33%" align="center"><?php echo $h['waktu_masuk']; ?></td>
                     <td width="33%" align="right">
-                      <button type="button" name="button" class="btn btn-primary">Bayar</button>
+                      <a href="?pg=bayarParkir&id=<?php echo $prk; ?>" class="btn btn-primary">Bayar</a>
                       <button type="button" name="button" class="btn btn-success">Cetak</button>
                     </td>
                   </tr>
@@ -82,6 +81,20 @@
           <?php
             }
           }
+
+          switch (@$_GET['pg']) {
+            case 'logout':
+              $pk->logout();
+              break;
+            case 'bayarParkir':
+              $pk->bayarParkir($prk);
+              // echo $?pk->idnopol;
+              break;
+            default:
+              # code...
+              break;
+          }
+
           ?>
       </div>
 
