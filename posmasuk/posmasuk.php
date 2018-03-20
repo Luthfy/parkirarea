@@ -4,12 +4,15 @@
    *  Pos Masuk
    */
 
+   date_default_timezone_set('Asia/Singapore');
+
   class posMasuk
   {
 
     private $koneksi;
     private $nopol;
     private $petugas;
+    private $unik;
 
     function __construct($koneksi, $petugas)
     {
@@ -47,9 +50,21 @@
       return $this->petugas;
     }
 
+    function unik()
+    {
+        // unikwaktu
+        $a = rand(1,9);
+        $b = date('Ymd');
+
+        $unik = "$a"."$b";
+        return $this->unik = $unik;
+    }
+
     function SimpanData()
     {
-      $q   = $this->koneksi->query("INSERT INTO catat_masuk SET nopol = '$this->nopol', id_petugas = '$this->petugas'");
+        $unik = $this->unik;
+        // $x    = "INSERT INTO catat_masuk (nopol, kode_unik, id_petugas) VALUES ('')"
+        $q   = $this->koneksi->query("INSERT INTO catat_masuk SET nopol = '$this->nopol', kode_unik = '$unik', id_petugas = '$this->petugas'");
 
       if (! $q )
       {
@@ -59,7 +74,7 @@
 
     function ambilData()
     {
-      $q = $this->koneksi->query("SELECT * FROM jumlah_kendaraan WHERE nopol = '$this->nopol'");
+      $q = $this->koneksi->query("SELECT * FROM jumlah_kendaraan WHERE kode_unik = '$this->unik'");
       $r = $q->fetch_array();
       return $r;
     }

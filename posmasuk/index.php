@@ -56,6 +56,7 @@
       {
         if (isset($_POST['nopol']) != null) {
           $pm->setNopol($_POST['nopol']);
+          $pm->unik();
           $pm->SimpanData();
           $r = $pm->ambilData();
 

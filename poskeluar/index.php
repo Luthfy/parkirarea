@@ -71,14 +71,14 @@
                     </td>
                     <td width="33%" align="center"><?php echo $h['waktu_masuk']; ?></td>
                     <td width="33%" align="right">
-                      <a href="?pg=bayarParkir&id=<?php echo $prk; ?>" class="btn btn-primary">Bayar</a>
-                      <button type="button" name="button" class="btn btn-success">Cetak</button>
+                      <a href="?pg=bayarParkir&uang=<?php echo $prk; ?>&nama=<?php echo $h['nama_petugas']; ?>&id=<?php echo $h['id_masuk']; ?>" class="btn btn-primary">Bayar</a>
                     </td>
                   </tr>
                 </table>
               </div>
 
           <?php
+
             }
           }
 
@@ -87,7 +87,7 @@
               $pk->logout();
               break;
             case 'bayarParkir':
-              $pk->bayarParkir($prk);
+              $pk->bayarParkir($_GET['uang'],$_GET['nama'],$_GET['id']);
               // echo $?pk->idnopol;
               break;
             default:

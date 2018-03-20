@@ -1,8 +1,12 @@
 <?php
 
+
 /**
- * POS KELUAR
- */
+* POS KELUAR
+*/
+
+date_default_timezone_set('Asia/Singapore');
+
 class posKeluar
 {
 
@@ -61,12 +65,12 @@ class posKeluar
 
     $q1 = $this->koneksi->query("SELECT * FROM catat_masuk WHERE id_masuk = '$this->idnopol'");
 
-  	$r1 = $q1->fetch_array();
+    $r1 = $q1->fetch_array();
 
-	  $w1 = new datetime($r1['waktu_masuk']);
-  	$w2 = new datetime(date("Y-m-d H:i:s"));
+    $w1 = new datetime($r1['waktu_masuk']);
+    $w2 = new datetime(date("Y-m-d H:i:s"));
 
-  	$b = $w1->diff($w2);
+    $b = $w1->diff($w2);
 
     $jam = ($b->y * 365 * 24) + ($b->m * 30 * 24) + ($b->d  * 24) + ($b->h);
 
@@ -74,29 +78,31 @@ class posKeluar
 
     if ($jam > 1) {
       $bayar = 1000 + ($jam * 1000);
-    } else if ($jam > 0 AND $jam < 1) {
-      $bayar = 2000;
     } else {
-      $bayar;
+      $bayar = 2000;
     }
 
     return $bayar;
   }
 
-  function bayarParkir($uang)
+  function bayarParkir($uang,$nama,$id)
   {
-    // $petugas = $this->petugas;
-    $idnopol = $this->idnopol;
-    // print_r($idnopol);
+    // Pengambilan Record Id Petugas
+    $petugas = mysqli_query($this->koneksi, "SELECT * FROM petugas WHERE nama_petugas = '".$nama."'");
+    $h = mysqli_fetch_array($petugas);
+    $idPetugas = $h['id_petugas'];
+    // Pengambilan Record Id Petugas
 
-    // $q = mysqli_query ($this->koneksi, "Insert Into catat_keluar SET id_masuk = '$idnopol', biaya = '$uang', pembayaran = 'Cash', id_petugas = '$petugas' ");
-    //
-    // if ($q) {
-    //   echo "<script>alert('Pembayaran Berhasil')</script>";
-    // } else {
-    //   echo "<script>alert('".mysqli_error($this->koneksi)."')</script>";
-    //   echo "<script>alert('".$this->idnopol."')</script>";
-    // }
+
+    $q = mysqli_query ($this->koneksi, "Insert Into catat_keluar SET id_masuk = '$id', biaya = '$uang', pembayaran = 'Cash', id_petugas = '$idPetugas' ");
+
+    if ($q) {
+      echo "<script>alert('Pembayaran Berhasil')</script>";
+      echo "<script>window.open('cetak.php', '_blank');</script>";
+      echo "<script>document.location='index.php'</script>";
+    } else {
+      echo "<script>alert('".mysqli_error($this->koneksi)."')</script>";
+    }
 
   }
 

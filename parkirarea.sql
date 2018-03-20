@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.6
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 26, 2018 at 02:38 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 20, 2018 at 03:39 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,7 +43,11 @@ CREATE TABLE `catat_keluar` (
 
 INSERT INTO `catat_keluar` (`id_keluar`, `id_masuk`, `waktu_keluar`, `biaya`, `pembayaran`, `id_petugas`) VALUES
 (1, 1, '2018-02-09 09:31:02', '4000', 'Cash', 2),
-(2, 2, '2018-02-09 09:48:55', '2000', 'Langganan', 2);
+(2, 2, '2018-02-09 09:48:55', '2000', 'Langganan', 2),
+(3, 25, '2018-03-19 23:12:10', '952000', 'Cash', 1),
+(4, 17, '2018-03-19 23:12:51', '952000', 'Cash', 1),
+(5, 3, '2018-03-19 23:15:13', '967000', 'Cash', 1),
+(6, 26, '2018-03-19 23:19:37', '952000', 'Cash', 1);
 
 -- --------------------------------------------------------
 
@@ -287,7 +291,7 @@ ALTER TABLE `petugas`
 -- AUTO_INCREMENT for table `catat_keluar`
 --
 ALTER TABLE `catat_keluar`
-  MODIFY `id_keluar` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_keluar` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `catat_masuk`
